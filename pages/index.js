@@ -54,6 +54,7 @@ export default function Home() {
         </div>
 
         <div className="col-start-1 col-end-7">
+        {isLoading && <Loading/>}
         {shortUrl && <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
        {!isLoading && <div className='text-sm md:text-md bg-stone-800 p-4 rounded-xl'>
           {shortUrl}
@@ -61,7 +62,7 @@ export default function Home() {
             {
               (isCopied && !isLoading) && <button className='btn btn-success w-24 rounded-lg'>Copied</button>
             }
-            {isLoading && <Loading/>}
+           
             {(!isLoading && !isCopied) && <CopyToClipboard text={shortUrl} onCopy={() => setIsCopied(true)}>
                               <button className='btn btn-info w-24 rounded-lg'>Copy</button>
             </CopyToClipboard>}
