@@ -22,7 +22,7 @@ export default function Home() {
       const data = await response.json();
 
       if (data.id)
-        setShortUrl(`http://localhost:3000/${data.id}`);
+        setShortUrl(`${process.env.NEXT_PUBLIC_DOMAIN_URL}${data.id}`);
     }
     else {
       setError("Invalid URL. Please Enter valid URL.");
